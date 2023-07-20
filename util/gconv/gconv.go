@@ -28,6 +28,7 @@ import (
 
 var (
 	// Empty strings.
+	// 表示 false 的文本集合
 	emptyStringMap = map[string]struct{}{
 		"":      {},
 		"0":     {},
@@ -39,12 +40,14 @@ var (
 	// StructTagPriority defines the default priority tags for Map*/Struct* functions.
 	// Note that, the `gconv/param` tags are used by old version of package.
 	// It is strongly recommended using short tag `c/p` instead in the future.
+	// 结构体的优先级标签列表
 	StructTagPriority = []string{
 		gtag.GConv, gtag.Param, gtag.GConvShort, gtag.ParamShort, gtag.Json,
 	}
 )
 
 // Byte converts `any` to byte.
+// 字节转换器
 func Byte(any interface{}) byte {
 	if v, ok := any.(byte); ok {
 		return v
@@ -53,6 +56,7 @@ func Byte(any interface{}) byte {
 }
 
 // Bytes converts `any` to []byte.
+// 字节数组转换器
 func Bytes(any interface{}) []byte {
 	if any == nil {
 		return nil
